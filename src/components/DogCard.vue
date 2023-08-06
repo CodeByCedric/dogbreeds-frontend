@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 
 defineProps({
   dog: {
@@ -24,10 +23,10 @@ const truncateDescription = (text, length) => {
 </template>
 
 <style scoped>
-/* TODO change to own layout */
 .dog-card {
   padding: 1.25rem;
   width: 15.5rem;
+  margin: 1rem;
   cursor: pointer;
   border: 1px solid #39495c;
   margin-bottom: 1rem;

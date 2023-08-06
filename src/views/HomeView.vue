@@ -58,8 +58,17 @@ const dogs = ref([
 
 <template>
   <main>
-    <div class="home">
+    <div class="dogs">
       <DogCard v-for="dog in dogs" :key="dog.id" :dog=dog></DogCard>
     </div>
   </main>
 </template>
+
+<style scoped>
+.dogs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+</style>
