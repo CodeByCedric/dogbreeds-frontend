@@ -1,3 +1,15 @@
+<template>
+  <div v-if="dog" class="dog-details-page">
+    <h1>{{ dog.name }}</h1>
+    <ul>
+      <li>Excercise Needs: {{ dog.exercise_needs }}</li>
+      <li>Trainability: {{ dog.trainability }}</li>
+      <li>Grooming Requirements: {{ dog.grooming_requirements }}</li>
+    </ul>
+    <p v-html="dog.description"></p>
+  </div>
+</template>
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import DogService from '../services/DogService.js';
@@ -19,18 +31,6 @@ onMounted(() => {
     });
 });
 </script>
-
-<template>
-  <div v-if="dog" class="dog-details-page">
-    <h1>{{ dog.name }}</h1>
-    <ul>
-      <li>Excercise Needs: {{ dog.exercise_needs }}</li>
-      <li>Trainability: {{ dog.trainability }}</li>
-      <li>Grooming Requirements: {{ dog.grooming_requirements }}</li>
-    </ul>
-    <p v-html="dog.description"></p>
-  </div>
-</template>
 
 <style scoped>
 .dog-details-page {

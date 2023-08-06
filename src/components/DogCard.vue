@@ -1,16 +1,3 @@
-<script setup>
-defineProps({
-  dog: {
-    type: Object,
-    required: true,
-  },
-});
-
-const truncateDescription = (text, length) => {
-  return text.length > length ? text.substring(0, length) + '...' : text;
-};
-</script>
-
 <template>
   <RouterLink class="dog-card-link" :to="{ name: 'dog-details', params: { id: dog.id } }">
     <div class="dog-card">
@@ -24,6 +11,20 @@ const truncateDescription = (text, length) => {
     </div>
   </RouterLink>
 </template>
+
+<script setup>
+defineProps({
+  dog: {
+    type: Object,
+    required: true,
+  },
+});
+
+const truncateDescription = (text, length) => {
+  return text.length > length ? text.substring(0, length) + '...' : text;
+};
+</script>
+
 
 <style scoped>
 .dog-card {
