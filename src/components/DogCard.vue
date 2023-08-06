@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div class="greetings">
+  <div class="dog-card">
 
   </div>
 </template>
