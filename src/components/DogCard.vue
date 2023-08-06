@@ -1,32 +1,28 @@
 <script setup>
-
 defineProps({
   dog: {
     type: Object,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
 const truncateDescription = (text, length) => {
-  return text.length > length ? text.substring(0, length) + "..." : text;
-}
-
+  return text.length > length ? text.substring(0, length) + '...' : text;
+};
 </script>
 
 <template>
-  <RouterLink
-  class="dog-card-link" 
-  :to="{ name: 'dog-details', params: {id: dog.id}}">
+  <RouterLink class="dog-card-link" :to="{ name: 'dog-details', params: { id: dog.id } }">
     <div class="dog-card">
       <h2>{{ dog.name }}</h2>
       <ul>
-          <li>Excercise Needs: {{ dog.exercise_needs }}</li>
-          <li>Trainability: {{ dog.trainability }}</li>
-          <li>Grooming Requirements: {{dog.grooming_requirements}}</li>
-        </ul>
+        <li>Exercise Needs: {{ dog.exercise_needs }}</li>
+        <li>Trainability: {{ dog.trainability }}</li>
+        <li>Grooming Requirements: {{ dog.grooming_requirements }}</li>
+      </ul>
       <p v-html="truncateDescription(dog.description, 100)"></p>
     </div>
-  </RouterLink> 
+  </RouterLink>
 </template>
 
 <style scoped>
@@ -42,7 +38,7 @@ const truncateDescription = (text, length) => {
 }
 
 .dog-card h2 {
-  align-self: center;;
+  align-self: center;
 }
 
 .dog-card:hover {
@@ -53,5 +49,4 @@ const truncateDescription = (text, length) => {
   text-decoration: none;
   color: inherit;
 }
-
 </style>

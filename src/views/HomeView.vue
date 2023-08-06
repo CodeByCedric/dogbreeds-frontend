@@ -3,24 +3,57 @@ import { ref, onMounted } from 'vue';
 import DogService from '../services/DogService.js';
 import DogCard from '../components/DogCard.vue';
 
-const dogs = ref(null)
+const dogs = ref(null);
 
 onMounted(() => {
   DogService.getDogs()
-      .then(response => {
-      dogs.value = response.data
+    .then((response) => {
+      dogs.value = response.data.map((dog) => {
+        dog.selectedExercise = true;
+        dog.selectedTrainability = true;
+        dog.selectedGrooming = true;
+        return dog;
+      });
     })
-    .catch(error => {
-      console.log(error)
-    })
-})
-
+    .catch((error) => {
+      console.log(error);
+    });
+});
 </script>
 
 <template>
+  <header id="filter">
+    <!-- <select name="exercise" id="exercise">
+      <option disabled value="placeholder" selected>Exercise Needs</option>
+      <option value="all">All</option>
+      <option value="very high">Perpetual, never ending exercise</option>
+      <option value="high">High</option>
+      <option value="moderate">Moderate</option>
+      <option value="low">No exercise for me or my dog</option>
+    </select>
+    <select name="trainability" id="trainability">
+      <option disabled value="placeholder" selected>Trainability</option>
+      <option value="all">All</option>
+      <option value="very high">I will learn everything</option>
+      <option value="high">High</option>
+      <option value="moderate">Moderate</option>
+      <option value="low">Low</option>
+      <option value="very-low">You will teach me nothing</option>
+    </select>
+
+    <select name="grooming" id="grooming">
+      <option disabled value="placeholder" selected>Grooming Requirements</option>
+      <option value="all">All</option>
+      <option value="very high">Primped and Pampered Pooches</option>
+      <option value="high">High-Maintenance Hairdos</option>
+      <option value="moderate">Routine Rinsers</option>
+      <option value="low">Basic Brushers</option>
+      <option value="very-low">No-Fuss Natural</option>
+    </select> -->
+  </header>
   <main>
     <div class="dogs">
-      <DogCard v-for="dog in dogs" :key="dog.id" :dog=dog></DogCard>
+      <DogCard v-for="dog in dogs" :key="dog.id" :dog="dog"></DogCard>
     </div>
   </main>
 </template>
@@ -32,4 +65,19 @@ onMounted(() => {
   justify-content: center;
 }
 
+#filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+#filter select {
+  margin: 0 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid #39495c;
+  font-size: 1rem;
+  width: 15rem;
+}
 </style>

@@ -1,47 +1,46 @@
 <script setup>
-import {ref, onMounted} from 'vue';
+import { ref, onMounted } from 'vue';
 import DogService from '../services/DogService.js';
 
 const props = defineProps({
-    id: {
-        required: true
-    }
-})
+  id: {
+    required: true,
+  },
+});
 const dog = ref(null);
 
 onMounted(() => {
-    DogService.getDog(props.id)
-      .then(response => {
-      dog.value = response.data
+  DogService.getDog(props.id)
+    .then((response) => {
+      dog.value = response.data;
     })
-    .catch(error => {
-      console.log(error)
-    })
-})
+    .catch((error) => {
+      console.log(error);
+    });
+});
 </script>
 
-
 <template>
-    <div v-if="dog" class="dog-details-page">
-        <h1>{{ dog.name }}</h1>
-        <ul>
-            <li>Excercise Needs: {{ dog.exercise_needs }}</li>
-            <li>Trainability: {{ dog.trainability }}</li>
-            <li>Grooming Requirements: {{dog.grooming_requirements}}</li>
-        </ul>
-        <p v-html=dog.description></p>
-    </div>
+  <div v-if="dog" class="dog-details-page">
+    <h1>{{ dog.name }}</h1>
+    <ul>
+      <li>Excercise Needs: {{ dog.exercise_needs }}</li>
+      <li>Trainability: {{ dog.trainability }}</li>
+      <li>Grooming Requirements: {{ dog.grooming_requirements }}</li>
+    </ul>
+    <p v-html="dog.description"></p>
+  </div>
 </template>
 
-<style scoped> 
+<style scoped>
 .dog-details-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: start;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: start;
+}
 
 .dog-details-page p {
-    max-width: 50rem;
+  max-width: 50rem;
 }
 </style>
