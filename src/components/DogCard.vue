@@ -14,12 +14,14 @@ const truncateDescription = (text, length) => {
 </script>
 
 <template>
-  <div class="dog-card">
-    <!-- Display Dog Data -->
-    <h2>{{ dog.name }}</h2>
-    <p v-html="truncateDescription(dog.description, 100)"></p>
-
-  </div>
+  <RouterLink
+  class="dog-card-link" 
+  :to="{ name: 'dog-details', params: {id: dog.id}}">
+    <div class="dog-card">
+      <h2>{{ dog.name }}</h2>
+      <p v-html="truncateDescription(dog.description, 100)"></p>
+    </div>
+  </RouterLink> 
 </template>
 
 <style scoped>
@@ -34,5 +36,9 @@ const truncateDescription = (text, length) => {
 .dog-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+.dog-card-link {
+  text-decoration: none;
+  color: inherit;
 }
 </style>

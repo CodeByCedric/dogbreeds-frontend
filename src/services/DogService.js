@@ -12,5 +12,8 @@ const apiClient = axios.create({
 export default {
     getDogs() {
         return apiClient.get("/dogs");
+    },
+    getDog(id) {
+        return apiClient.get("/dogs/" + id);
     } 
 }
