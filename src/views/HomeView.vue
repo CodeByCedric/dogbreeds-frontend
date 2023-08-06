@@ -59,7 +59,7 @@ const dogs = ref([
 <template>
   <main>
     <div class="home">
-      <DogCard></DogCard>
+      <DogCard v-for="dog in dogs" :key="dog.id" :dog=dog></DogCard>
     </div>
   </main>
 </template>
