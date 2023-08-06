@@ -21,7 +21,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <style>
   #layout {
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+
   }
   nav {
     padding: 2rem;
