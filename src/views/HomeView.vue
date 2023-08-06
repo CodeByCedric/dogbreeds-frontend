@@ -1,14 +1,12 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import DogService from '../services/DogService.js';
 import DogCard from '../components/DogCard.vue';
 
 const dogs = ref(null)
 
-//commented link to switch out API call to my-json-server in case the local API is down
 onMounted(() => {
-  //   axios.get('https://my-json-server.typicode.com/cedricthegreat/dogsapi/dogs')
-  axios.get('http://localhost/api/dogs')
+  DogService.getDogs()
       .then(response => {
       dogs.value = response.data
     })
