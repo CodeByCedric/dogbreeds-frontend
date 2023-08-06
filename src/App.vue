@@ -19,7 +19,7 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
-<style scoped>
+<style>
   #layout {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
