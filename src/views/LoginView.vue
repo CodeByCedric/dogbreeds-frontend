@@ -39,6 +39,7 @@ methods: {
         console.log("login success", response);
         this.email = '';
         this.password = '';
+        this.$router.push({ name: 'home' });
         alert("login success");
       })
       .catch((error) => {
