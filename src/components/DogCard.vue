@@ -32,6 +32,7 @@ const truncateDescription = (text, length) => {
   flex-direction: column;
   padding: 1.25rem;
   width: 15.5rem;
+  height: 17.5rem;
   margin: 1rem;
   cursor: pointer;
   border: 1px solid #39495c;
