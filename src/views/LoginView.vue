@@ -37,12 +37,15 @@ methods: {
     UserService.loginUser(user)
       .then((response) => {
         console.log("login success", response);
+        this.email = '';
+        this.password = '';
+        alert("login success");
       })
       .catch((error) => {
         console.log("login error", error);
+        alert("login failed");
       });
-      this.email = '';
-      this.password = '';
+
   }
 }
 }
