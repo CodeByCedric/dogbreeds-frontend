@@ -43,11 +43,11 @@ export default {
       };
       UserService.registerUser(user)
         .then((response) => {
-          console.log(response);
+          console.log("register success", response);
           // TODO: user feedback (message, redirect, etc.)
         })
         .catch((error) => {
-          console.log(error);
+          console.log("register error", error);
         });
         this.name = '';
         this.email = '';

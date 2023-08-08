@@ -36,11 +36,13 @@ methods: {
     };
     UserService.loginUser(user)
       .then((response) => {
-        console.log(response);
+        console.log("login success", response);
       })
       .catch((error) => {
-        console.log(error);
+        console.log("login error", error);
       });
+      this.email = '';
+      this.password = '';
   }
 }
 }
