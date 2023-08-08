@@ -18,7 +18,10 @@ export default {
         });
     },
     loginUser(user) {
-        return apiClient.post('/login', user);
+        return apiClient.post('/login', {
+          email: user.email,
+          password: user.password,
+        });
     },
 };
 

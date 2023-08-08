@@ -2,8 +2,8 @@
     <h2>Register</h2>
     <form @submit.prevent="onRegister">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="username">
+        <label for="name">Name</label>
+        <input type="text" id="name" v-model="name">
       </div>
 
       <div class="form-group">
@@ -23,14 +23,13 @@
 <script>
 
 import UserService from '../services/UserService.js';
-import axios from 'axios';
 
 export default {
   name: 'RegisterView',
   data() {
     return {
       disabled: false,
-      username: '',
+      name: '',
       email: '',
       password: '',
     };
@@ -38,17 +37,21 @@ export default {
   methods: {
     onRegister() {
       let user = {
-        name: this.username,
+        name: this.name,
         email: this.email,
         password: this.password,
       };
       UserService.registerUser(user)
         .then((response) => {
           console.log(response);
+          // TODO: user feedback (message, redirect, etc.)
         })
         .catch((error) => {
           console.log(error);
         });
+        this.name = '';
+        this.email = '';
+        this.password = '';
     }
   }
 }
