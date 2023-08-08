@@ -3,7 +3,16 @@ const CACHE_NAME = "dog-cache-v1";
 const CACHED_URLS = [
   "/",
   "/index.html",
+  "/src/main.js",
+  "/src/App.vue",
+  "/src/components/DogCard.vue",
+  "/src/router/index.js",
+  "/src/services/DogService.js",
+  "/src/services/UserService.js",
+  "/src/sw/ServiceWorker.js",
 ];
+
+//Gaat werken met vue en cache? Op localhost zijn het vue files, maar wordt dit niet uiteindelijk omgezet naar js?
 
 self.addEventListener("install", e => {
   const populateCache = async () => {
@@ -27,10 +36,15 @@ self.addEventListener("activate", e => {
   e.waitUntil(clearCaches())
 });
 
+//delete: om een cache te verwijderen
+//keys: om een lijst te krijgen van alle cachenamen die horen bij de huidige origin
+//de if om ervoor te zorgen dat de laatste cache niet wordt verwijderd
+
+
 self.addEventListener("fetch", e => {
-  const myFetcher = staleWhileRevalidate;
-  e.respondWith(myFetcher(e));
+  e.respondWith(staleWhileRevalidate(e));
 });
+
 
 const staleWhileRevalidate = async e => {
     const cache = await caches.open(CACHE_NAME);
@@ -43,4 +57,10 @@ const staleWhileRevalidate = async e => {
     return response;
 }
 
-
+/*
+1. Cache openen
+2. Response uit cache halen, twee mogelijkheden: 
+  a. if: als response in de cache werd gevonden, stop diezelfde request in de cache. Gaat over het netwerk de request binnenhalen en de cach updaten.
+  b. else: zit niet in de cache, dus undefined, over het netwerk response ophalen en in cache steken. 
+  (clone: je kan niet twee keer dezelfde response gebruiken, dus je moet een kopie maken)
+*/
