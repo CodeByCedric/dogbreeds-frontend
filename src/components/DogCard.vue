@@ -12,17 +12,20 @@
   </RouterLink>
 </template>
 
-<script setup>
-defineProps({
-  dog: {
-    type: Object,
-    required: true,
+<script>
+export default {
+  props: {
+    dog: {
+      type: Object,
+      required: true,
+    },
   },
-});
-
-const truncateDescription = (text, length) => {
-  return text.length > length ? text.substring(0, length) + '...' : text;
-};
+  methods: {
+    truncateDescription(text, length) {
+      return text.length > length ? text.substring(0, length) + '...' : text;
+    }
+  }
+}
 </script>
 
 

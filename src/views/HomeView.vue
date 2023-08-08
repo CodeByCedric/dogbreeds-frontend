@@ -1,27 +1,3 @@
-<script setup>
-import { ref, onMounted } from 'vue';
-import DogService from '../services/DogService.js';
-import DogCard from '../components/DogCard.vue';
-import DogFilter from '../components/DogFilter.vue';
-
-const dogs = ref(null);
-
-onMounted(() => {
-  DogService.getDogs()
-    .then((response) => {
-      dogs.value = response.data.map((dog) => {
-        dog.selectedExercise = true;
-        dog.selectedTrainability = true;
-        dog.selectedGrooming = true;
-        return dog;
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
-</script>
-
 <template>
   <DogFilter></DogFilter>
   <main>
@@ -30,6 +6,38 @@ onMounted(() => {
     </div>
   </main>
 </template>
+
+<script>
+import DogService from '../services/DogService.js';
+import DogCard from '../components/DogCard.vue';
+import DogFilter from '../components/DogFilter.vue';
+
+export default {
+  components: {
+    DogCard,
+    DogFilter
+  },
+  data() {
+    return {
+      dogs: null
+    };
+  },
+  created() { // this replaces the onMounted from the Composition API
+    DogService.getDogs()
+      .then((response) => {
+        this.dogs = response.data.map((dog) => {
+          dog.selectedExercise = true;
+          dog.selectedTrainability = true;
+          dog.selectedGrooming = true;
+          return dog;
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+}
+</script>
 
 <style scoped>
 .dogs {

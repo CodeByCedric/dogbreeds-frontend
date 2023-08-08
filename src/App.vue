@@ -1,24 +1,39 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router';
-</script>
-
 <template>
   <div id="layout">
     <header>
       <nav>
-        <div class: nav-left>
+        <div class="nav-left">
           <RouterLink :to="{ name: 'home' }">Home</RouterLink>
         </div>
-        <div class nav-right>
-          <RouterLink :to="{ name: 'login' }">Login</RouterLink> |
+        <div class="nav-right">
+          <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">Login | </RouterLink>
+          <a v-show="isLoggedIn" @click="onLogout" href="#">Logout | </a>
           <RouterLink :to="{ name: 'register' }">Register</RouterLink>
         </div>
-
       </nav>
     </header>
     <RouterView />
   </div>
 </template>
+
+<script>
+import { RouterLink } from 'vue-router';
+
+export default {
+  name: 'App',
+  data() {
+    return {
+      isLoggedIn: false
+    };
+  },
+  methods: {
+    onLogout() {
+      this.isLoggedIn = false;
+      this.$router.push({ name: 'home' });
+    }
+  }
+}
+</script>
 
 <style>
 #layout {
