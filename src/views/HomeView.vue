@@ -22,7 +22,7 @@ export default {
       dogs: null
     };
   },
-  created() { // this replaces the onMounted from the Composition API
+  created() {
     DogService.getDogs()
       .then((response) => {
         this.dogs = response.data.map((dog) => {

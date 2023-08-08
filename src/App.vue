@@ -12,7 +12,7 @@
         </div>
       </nav>
     </header>
-    <RouterView />
+    <RouterView @login="handleLogin" />
   </div>
 </template>
 
@@ -27,6 +27,9 @@ export default {
     };
   },
   methods: {
+    handleLogin() {
+      this.isLoggedIn = true;
+    },
     onLogout() {
       this.isLoggedIn = false;
       this.$router.push({ name: 'home' });
