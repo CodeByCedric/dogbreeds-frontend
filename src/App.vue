@@ -6,9 +6,14 @@ import { RouterLink, RouterView } from 'vue-router';
   <div id="layout">
     <header>
       <nav>
-        <RouterLink :to="{ name: 'home' }">Home</RouterLink> |
-        <RouterLink :to="{ name: 'login' }">Login</RouterLink> |
-        <RouterLink :to="{ name: 'register' }">Register</RouterLink>
+        <div class: nav-left>
+          <RouterLink :to="{ name: 'home' }">Home</RouterLink>
+        </div>
+        <div class nav-right>
+          <RouterLink :to="{ name: 'login' }">Login</RouterLink> |
+          <RouterLink :to="{ name: 'register' }">Register</RouterLink>
+        </div>
+
       </nav>
     </header>
     <RouterView />
@@ -20,7 +25,11 @@ import { RouterLink, RouterView } from 'vue-router';
   font-family: Arial, Helvetica, sans-serif;
 }
 nav {
+  display: flex;
+  justify-content: space-between;
   padding: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 nav a {
   font-weight: bold;
