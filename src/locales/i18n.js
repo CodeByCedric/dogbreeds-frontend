@@ -4,7 +4,7 @@ import nl from './translations/nl.json';
 
 // TODO: subdivide messages (in the json files)
 const i18n = createI18n({
-  locale: 'en',
+  locale: 'nl',
   messages: {
     en: en,
     nl: nl,

@@ -3,10 +3,13 @@
     <header>
       <nav>
         <div class="nav-left">
+          <span title="English" @click="$i18n.locale = 'en'">EN</span>
+          <span>|</span>
+          <span title="Nederlands" @click="$i18n.locale = 'nl'">NL</span>
           <RouterLink :to="{ name: 'home' }">{{ $t('home') }}</RouterLink>
         </div>
         <div class="nav-right">
-          <RouterLink v-if="isLoggedIn" :to="{ name: 'login' }">{{ $t('dasboard') }}</RouterLink>
+          <RouterLink v-if="isLoggedIn" :to="{ name: 'login' }">{{ $t('dashboard') }}</RouterLink>
           <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">{{ $t('login') }}</RouterLink>
           <a v-show="isLoggedIn" @click="onLogout" href="#">{{ $t('logout') }}</a>
           <RouterLink v-if="!isLoggedIn" :to="{ name: 'register' }">{{
@@ -54,17 +57,31 @@ nav {
   margin-left: 2rem;
   margin-right: 2rem;
 }
-nav a {
+nav a, nav span {
   font-weight: bold;
   color: #2c3e50;
+  margin-left: 1rem;
   margin-right: 1rem;
 }
 
-nav a:hover {
+nav span {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+
+nav a:hover, nav span:hover {
+  cursor: pointer;
   color: #fcba03;
+}
+
+nan span:first-child {
+  margin-left: 0;
 }
 
 nav a:last-child {
   margin-right: 0;
 }
+
+
 </style>
