@@ -26,39 +26,38 @@ export default {
   data() {
     return {
       dogs: null,
+      dogCache: {},
     };
   },
   methods: {
     fetchDogs(locale) {
-      DogService.getDogs(locale)
-        .then((response) => {
-          this.dogs = response.data.map((dog) => {
-            dog.selectedExercise = true;
-            dog.selectedTrainability = true;
-            dog.selectedGrooming = true;
-            return dog;
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+      if (this.dogCache[locale]) {
+        this.dogs = this.dogCache[locale];
+        return;
+      } 
+      else {
+        DogService.getDogs(locale)
+          .then((response) => {
+            const dogsForCache = response.data.map((dog) => {
+              dog.selectedExercise = true;
+              dog.selectedTrainability = true;
+              dog.selectedGrooming = true;
+              return dog;
+            });
+            this.dogCache[locale] = dogsForCache;
+            this.dogs = dogsForCache;
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+        }
+    }
   },
   created() {
     let locale = this.$i18n.locale;
-    DogService.getDogs(locale)
-      .then((response) => {
-        this.dogs = response.data.map((dog) => {
-          dog.selectedExercise = true;
-          dog.selectedTrainability = true;
-          dog.selectedGrooming = true;
-          return dog;
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.fetchDogs(locale);
   },
+
 };
 </script>
 

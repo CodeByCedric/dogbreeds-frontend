@@ -22,7 +22,8 @@ export default {
   },
   data() {
     return {
-      dog: null
+      dog: null,
+      dogDetailCache: {},
     };
   },
   watch: {
@@ -34,14 +35,25 @@ export default {
     }
   },
   methods: {
-    async fetchDogDetails(lang) {
-      try {
-        const response = await DogService.getDog(this.id, lang);
-        this.dog = response.data;
-      } catch (error) {
-        console.log(error);
+    fetchDogDetails(locale) {
+      if (this.dogDetailCache[locale]) {
+        this.dog = this.dogDetailCache[locale];
+        return;
       }
-    }
+      else {
+        DogService.getDog(this.id, locale)
+          .then((response)=> {
+            this.dog = response.data;
+            this.dogDetailCache[locale] = this.dog;
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      }
+
+
+
+    },
   }
 };
 </script>
