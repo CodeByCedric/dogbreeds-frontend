@@ -23,11 +23,10 @@ export default {
   methods: {
     truncateDescription(text, length) {
       return text.length > length ? text.substring(0, length) + '...' : text;
-    }
-  }
-}
+    },
+  },
+};
 </script>
-
 
 <style scoped>
 .dog-card {

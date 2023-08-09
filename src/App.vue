@@ -6,6 +6,7 @@
           <RouterLink :to="{ name: 'home' }">Home</RouterLink>
         </div>
         <div class="nav-right">
+          <RouterLink v-if="isLoggedIn" :to="{name: 'login'}">Dashboard | </RouterLink>
           <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">Login | </RouterLink>
           <a v-show="isLoggedIn" @click="onLogout" href="#">Logout | </a>
           <RouterLink :to="{ name: 'register' }">Register</RouterLink>
@@ -18,12 +19,13 @@
 
 <script>
 import { RouterLink } from 'vue-router';
+import UserService from '/src/services/UserService.js';
 
 export default {
   name: 'App',
   data() {
     return {
-      isLoggedIn: false
+      isLoggedIn: false,
     };
   },
   methods: {
@@ -33,9 +35,10 @@ export default {
     onLogout() {
       this.isLoggedIn = false;
       this.$router.push({ name: 'home' });
-    }
-  }
-}
+      UserService.logoutUser();
+    },
+  },
+};
 </script>
 
 <style>

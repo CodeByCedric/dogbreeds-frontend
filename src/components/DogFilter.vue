@@ -46,5 +46,4 @@
   font-size: 1rem;
   width: 15rem;
 }
-
 </style>

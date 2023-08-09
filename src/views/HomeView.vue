@@ -13,13 +13,14 @@ import DogCard from '../components/DogCard.vue';
 import DogFilter from '../components/DogFilter.vue';
 
 export default {
+  emits: ['login'],
   components: {
     DogCard,
-    DogFilter
+    DogFilter,
   },
   data() {
     return {
-      dogs: null
+      dogs: null,
     };
   },
   created() {
@@ -35,8 +36,8 @@ export default {
       .catch((error) => {
         console.log(error);
       });
-  }
-}
+  },
+};
 </script>
 
 <style scoped>

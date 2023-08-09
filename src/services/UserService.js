@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const apiClient = axios.create({
   baseURL: 'http://localhost/api/',
-  withCredentials: false,
+  withCredentials: true,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -10,18 +10,20 @@ const apiClient = axios.create({
 });
 
 export default {
-    registerUser(user) {
-        return apiClient.post("register", {
-          name: user.name,
-          email: user.email,
-          password: user.password
-        });
-    },
-    loginUser(user) {
-        return apiClient.post('/login', {
-          email: user.email,
-          password: user.password,
-        });
-    },
+  registerUser(user) {
+    return apiClient.post('register', {
+      name: user.name,
+      email: user.email,
+      password: user.password,
+    });
+  },
+  loginUser(user) {
+    return apiClient.post('/login', {
+      email: user.email,
+      password: user.password,
+    });
+  },
+  logoutUser() {
+    return apiClient.post('/logout');
+  },
 };
-

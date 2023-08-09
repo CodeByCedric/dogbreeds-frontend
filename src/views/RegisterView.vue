@@ -1,31 +1,31 @@
 <template>
-    <h2>Register</h2>
-    <form @submit.prevent="onRegister">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" v-model="name">
-      </div>
+  <h2>Register</h2>
+  <form @submit.prevent="onRegister">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" v-model="name" />
+    </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" v-model="email">
-      </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" v-model="email" />
+    </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="password">
-      </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" v-model="password" />
+    </div>
 
-      <input v-bind:disabled="disabled" class="button" type="submit" value="Register">
-    </form>
+    <input v-bind:disabled="disabled" class="button" type="submit" value="Register" />
+  </form>
 </template>
 
 <script>
-
 import UserService from '../services/UserService.js';
 
 export default {
   name: 'RegisterView',
+  emits: ['login'],
   data() {
     return {
       disabled: false,
@@ -43,28 +43,27 @@ export default {
       };
       UserService.registerUser(user)
         .then((response) => {
-          console.log("register success", response);
+          console.log('register success', response);
           // TODO: user feedback (message, redirect, etc.)
         })
         .catch((error) => {
-          console.log("register error", error);
+          console.log('register error', error);
         });
-        this.name = '';
-        this.email = '';
-        this.password = '';
-    }
-  }
-}
-
+      this.name = '';
+      this.email = '';
+      this.password = '';
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 h2 {
   padding-bottom: 1rem;
 }
 
-h2, form {
+h2,
+form {
   display: flex;
   flex-direction: column;
   width: 300px;
