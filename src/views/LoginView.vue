@@ -2,16 +2,16 @@
   <h2>Login</h2>
   <form @submit.prevent="onLogin">
     <div class="form-group">
-      <label for="email">{{$t("email")}}</label>
+      <label for="email">{{ $t('email') }}</label>
       <input type="email" id="email" v-model="email" />
     </div>
 
     <div class="form-group">
-      <label for="password">{{$t("password")}}</label>
+      <label for="password">{{ $t('password') }}</label>
       <input type="password" id="password" v-model="password" />
     </div>
 
-    <input v-bind:disabled="disabled" class="button" type="submit" value="Login" />
+    <input v-bind:disabled="disabled" class="button" type="submit" :value="$t('login')" />
   </form>
 </template>
 

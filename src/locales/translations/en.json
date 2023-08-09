@@ -1,0 +1,36 @@
+{
+    "appTitle":"Dog Finder",
+    "home": "Home",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "dashboard": "Dashboard",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "all": "All",
+    "exercise_needs": {
+      "title": "Exercise Needs",
+      "very_high": "Very High",
+      "high": "High",
+      "moderate": "Moderate",
+      "low": "Low",
+      "very_low": "Very Low"
+    },
+    "trainability": {
+      "title": "Trainability",
+      "very_high": "Very High",
+      "high": "High",
+      "moderate": "Moderate",
+      "low": "Low",
+      "very_low": "Very Low"
+    },
+    "grooming_requirements": {
+      "title": "Grooming Requirements",
+      "very_high": "Very High",
+      "high": "High",
+      "moderate": "Moderate",
+      "low": "Low",
+      "very_low": "Very Low"
+    }
+  }

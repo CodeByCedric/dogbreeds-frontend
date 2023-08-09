@@ -1,22 +1,23 @@
 <template>
-  <h2>{{$t("register")}}</h2>
+  <h2>{{ $t('') }}</h2>
   <form @submit.prevent="onRegister">
     <div class="form-group">
-      <label for="name">{{$t("name")}}</label>
+      <label for="name">{{ $t('name') }}</label>
       <input type="text" id="name" v-model="name" />
     </div>
 
     <div class="form-group">
-      <label for="email">{{$t("email")}}</label>
+      <label for="email">{{ $t('email') }}</label>
       <input type="email" id="email" v-model="email" />
     </div>
 
     <div class="form-group">
-      <label for="password">{{$t("password")}}</label>
+      <label for="password">{{ $t('password') }}</label>
       <input type="password" id="password" v-model="password" />
     </div>
 
-    <input v-bind:disabled="disabled" class="button" type="submit" value="Register" />
+    <input v-bind:disabled="disabled" class="button" type="submit" :value="$t('register')" />
+    <!-- todo: how to implement translation on button?  -->
   </form>
 </template>
 
