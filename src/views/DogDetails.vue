@@ -31,30 +31,26 @@ export default {
       immediate: true,
       handler(newLocale) {
         this.fetchDogDetails(newLocale);
-      }
-    }
+      },
+    },
   },
   methods: {
     fetchDogDetails(locale) {
       if (this.dogDetailCache[locale]) {
         this.dog = this.dogDetailCache[locale];
         return;
-      }
-      else {
+      } else {
         DogService.getDog(this.id, locale)
-          .then((response)=> {
+          .then((response) => {
             this.dog = response.data;
             this.dogDetailCache[locale] = this.dog;
           })
           .catch((error) => {
             console.log(error);
-          })
+          });
       }
-
-
-
     },
-  }
+  },
 };
 </script>
 

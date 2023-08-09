@@ -32,6 +32,11 @@ const router = createRouter({
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue'),
     },
+    {
+      path: '/add-dog',
+      name: 'add-dog',
+      component: () => import('../views/CreateDogView.vue'),
+    },
   ],
 });
 

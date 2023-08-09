@@ -11,7 +11,7 @@ const apiClient = axios.create({
 });
 
 export default {
-  getDogs(locale) {   
+  getDogs(locale) {
     const langParam = locale !== 'en' ? '?lang=' + locale : '';
     return apiClient.get('/dogs' + langParam);
   },

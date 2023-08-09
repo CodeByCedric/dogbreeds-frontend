@@ -17,7 +17,6 @@
     </div>
 
     <input v-bind:disabled="disabled" class="button" type="submit" :value="$t('register')" />
-    <!-- todo: how to implement translation on button?  -->
   </form>
 </template>
 

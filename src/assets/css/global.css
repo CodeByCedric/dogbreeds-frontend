@@ -1,0 +1,31 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dogs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dog-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  width: 15.5rem;
+  height: 17.5rem;
+  margin: 1rem;
+  cursor: pointer;
+  border: 1px solid #39495c;
+  margin-bottom: 1rem;
+}
+
+.dog-card h2 {
+  align-self: center;
+}
+
+.dog-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}

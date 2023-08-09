@@ -19,9 +19,9 @@ export default {
     DogFilter,
   },
   watch: {
-    '$i18n.locale': function(newLocale) {
+    '$i18n.locale': function (newLocale) {
       this.fetchDogs(newLocale);
-    }
+    },
   },
   data() {
     return {
@@ -34,8 +34,7 @@ export default {
       if (this.dogCache[locale]) {
         this.dogs = this.dogCache[locale];
         return;
-      } 
-      else {
+      } else {
         DogService.getDogs(locale)
           .then((response) => {
             const dogsForCache = response.data.map((dog) => {
@@ -49,22 +48,15 @@ export default {
           })
           .catch((error) => {
             console.log(error);
-          })
-        }
-    }
+          });
+      }
+    },
   },
   created() {
     let locale = this.$i18n.locale;
     this.fetchDogs(locale);
   },
-
 };
 </script>
 
-<style scoped>
-.dogs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-</style>
+<style scoped></style>

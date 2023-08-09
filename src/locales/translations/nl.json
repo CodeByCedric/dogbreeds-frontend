@@ -1,36 +1,42 @@
 {
-    "appTitle": "Hondenzoeker",
-    "home": "Home",
-    "login": "Login",
-    "logout": "Uitloggen",
-    "register": "Registreren",
-    "dashboard": "Dashboard",
-    "name": "Naam",
-    "email": "Email",
-    "password": "Wachtwoord",
-    "all": "Alle",
-    "exercise_needs": {
-      "title": "Bewegingsbehoefte",
-      "very_high": "Zeer hoog",
-      "high": "Hoog",
-      "moderate": "Gemiddeld",
-      "low": "Laag",
-      "very_low": "Zeer laag"
-    },
-    "trainability": {
-      "title": "Trainbaarheid",
-      "very_high": "Zeer hoog",
-      "high": "Hoog",
-      "moderate": "Gemiddeld",
-      "low": "Laag",
-      "very_low": "Zeer laag"
-    },
-    "grooming_requirements": {
-      "title": "Verzorging",
-      "very_high": "Zeer hoog",
-      "high": "Hoog",
-      "moderate": "Gemiddeld",
-      "low": "Laag",
-      "very_low": "Zeer laag"
-    }
-  }
+  "appTitle": "Hondenzoeker",
+  "home": "Home",
+  "login": "Login",
+  "logout": "Uitloggen",
+  "register": "Registreren",
+  "dashboard": "Dashboard",
+  "name": "Naam",
+  "email": "Email",
+  "password": "Wachtwoord",
+  "all": "Alle",
+  "exercise_needs": {
+    "title": "Bewegingsbehoefte",
+    "very_high": "Zeer hoog",
+    "high": "Hoog",
+    "moderate": "Gemiddeld",
+    "low": "Laag",
+    "very_low": "Zeer laag"
+  },
+  "trainability": {
+    "title": "Trainbaarheid",
+    "very_high": "Zeer hoog",
+    "high": "Hoog",
+    "moderate": "Gemiddeld",
+    "low": "Laag",
+    "very_low": "Zeer laag"
+  },
+  "grooming_requirements": {
+    "title": "Verzorging",
+    "very_high": "Zeer hoog",
+    "high": "Hoog",
+    "moderate": "Gemiddeld",
+    "low": "Laag",
+    "very_low": "Zeer laag"
+  },
+  "english": "Engels",
+  "dutch": "Nederlands",
+  "dogbreed": "Ras",
+  "description": "Omschrijving",
+  "common_fields": "Gemeenschappelijke velden",
+  "add_dog": "Hond Toevoegen"
+}
