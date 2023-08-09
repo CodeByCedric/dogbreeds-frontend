@@ -6,10 +6,10 @@
           <RouterLink :to="{ name: 'home' }">Home</RouterLink>
         </div>
         <div class="nav-right">
-          <RouterLink v-if="isLoggedIn" :to="{name: 'login'}">Dashboard | </RouterLink>
-          <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">Login | </RouterLink>
-          <a v-show="isLoggedIn" @click="onLogout" href="#">Logout | </a>
-          <RouterLink :to="{ name: 'register' }">Register</RouterLink>
+          <RouterLink v-if="isLoggedIn" :to="{name: 'login'}">Dashboard</RouterLink>
+          <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">Login</RouterLink>
+          <a v-show="isLoggedIn" @click="onLogout" href="#">Logout</a>
+          <RouterLink v-if="!isLoggedIn" :to="{ name: 'register' }">Register</RouterLink>
         </div>
       </nav>
     </header>
@@ -55,8 +55,14 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin-right: 1rem;
 }
+
 nav a:hover {
   color: #fcba03;
+}
+
+nav a:last-child {
+  margin-right: 0;
 }
 </style>
