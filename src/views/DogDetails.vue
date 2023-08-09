@@ -3,9 +3,9 @@
   <div v-if="dog" class="dog-details-page">
     <h1>{{ dog.name }}</h1>
     <ul>
-      <li>{{ $t('exercise_needs') }}: {{ dog.exercise_needs }}</li>
-      <li>{{ $t('trainability') }}: {{ dog.trainability }}</li>
-      <li>{{ $t('grooming_requirements') }}: {{ dog.grooming_requirements }}</li>
+      <li>{{ $t('exercise_needs.title') }}: {{ dog.exercise_needs }}</li>
+      <li>{{ $t('trainability.title') }}: {{ dog.trainability }}</li>
+      <li>{{ $t('grooming_requirements.title') }}: {{ dog.grooming_requirements }}</li>
     </ul>
     <p v-html="dog.description"></p>
   </div>

@@ -3,9 +3,9 @@
     <header>
       <nav>
         <div class="nav-left">
-          <span title="English" @click="$i18n.locale = 'en'">EN</span>
+          <span title="English" @click="changeLocale('en')">EN</span>
           <span>|</span>
-          <span title="Nederlands" @click="$i18n.locale = 'nl'">NL</span>
+          <span title="Nederlands" @click="changeLocale('nl')">NL</span>
           <RouterLink :to="{ name: 'home' }">{{ $t('home') }}</RouterLink>
         </div>
         <div class="nav-right">
@@ -42,6 +42,14 @@ export default {
       this.$router.push({ name: 'home' });
       UserService.logoutUser();
     },
+    activeLocale() {
+      let locale = this.$i18n.locale;
+      console.log(locale);
+      return locale;
+    },
+    changeLocale(locale) {
+      this.$i18n.locale = locale;
+    }
   },
 };
 </script>
