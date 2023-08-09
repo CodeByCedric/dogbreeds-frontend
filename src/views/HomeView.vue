@@ -18,13 +18,35 @@ export default {
     DogCard,
     DogFilter,
   },
+  watch: {
+    '$i18n.locale': function(newLocale) {
+      this.fetchDogs(newLocale);
+    }
+  },
   data() {
     return {
       dogs: null,
     };
   },
+  methods: {
+    fetchDogs(locale) {
+      DogService.getDogs(locale)
+        .then((response) => {
+          this.dogs = response.data.map((dog) => {
+            dog.selectedExercise = true;
+            dog.selectedTrainability = true;
+            dog.selectedGrooming = true;
+            return dog;
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
   created() {
-    DogService.getDogs()
+    let locale = this.$i18n.locale;
+    DogService.getDogs(locale)
       .then((response) => {
         this.dogs = response.data.map((dog) => {
           dog.selectedExercise = true;

@@ -11,10 +11,12 @@ const apiClient = axios.create({
 });
 
 export default {
-  getDogs() {   
-    return apiClient.get('/dogs');
+  getDogs(locale) {   
+    const langParam = locale !== 'en' ? '?lang=' + locale : '';
+    return apiClient.get('/dogs' + langParam);
   },
-  getDog(id) {
-    return apiClient.get('/dogs/' + id);
+  getDog(id, locale) {
+    const langParam = locale !== 'en' ? '?lang=' + locale : '';
+    return apiClient.get('/dogs/' + id + langParam);
   },
 };

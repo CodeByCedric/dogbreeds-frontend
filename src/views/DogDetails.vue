@@ -11,26 +11,39 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
+<script>
 import DogService from '../services/DogService.js';
 
-const props = defineProps({
-  id: {
-    required: true,
+export default {
+  props: {
+    id: {
+      required: true,
+    },
   },
-});
-const dog = ref(null);
-
-onMounted(() => {
-  DogService.getDog(props.id)
-    .then((response) => {
-      dog.value = response.data;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
+  data() {
+    return {
+      dog: null
+    };
+  },
+  watch: {
+    '$i18n.locale': {
+      immediate: true,
+      handler(newLocale) {
+        this.fetchDogDetails(newLocale);
+      }
+    }
+  },
+  methods: {
+    async fetchDogDetails(lang) {
+      try {
+        const response = await DogService.getDog(this.id, lang);
+        this.dog = response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
