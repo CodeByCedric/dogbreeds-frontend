@@ -3,9 +3,9 @@
     <div class="dog-card">
       <h2>{{ dog.name }}</h2>
       <ul>
-        <li>Exercise Needs: {{ dog.exercise_needs }}</li>
-        <li>Trainability: {{ dog.trainability }}</li>
-        <li>Grooming Requirements: {{ dog.grooming_requirements }}</li>
+        <li>{{$t("exercise_needs")}}: {{ dog.exercise_needs }}</li>
+        <li>{{$t("trainability")}}: {{ dog.trainability }}</li>
+        <li>{{$t("grooming_requirements")}}: {{ dog.grooming_requirements }}</li>
       </ul>
       <p v-html="truncateDescription(dog.description, 100)"></p>
     </div>

@@ -1,10 +1,11 @@
+<!-- todo: make component out of ul -->
 <template>
   <div v-if="dog" class="dog-details-page">
     <h1>{{ dog.name }}</h1>
     <ul>
-      <li>Excercise Needs: {{ dog.exercise_needs }}</li>
-      <li>Trainability: {{ dog.trainability }}</li>
-      <li>Grooming Requirements: {{ dog.grooming_requirements }}</li>
+      <li>{{$t("exercise_needs")}}: {{ dog.exercise_needs }}</li>
+      <li>{{$t("trainability")}}: {{ dog.trainability }}</li>
+      <li>{{$t("grooming_requirements")}}: {{ dog.grooming_requirements }}</li>
     </ul>
     <p v-html="dog.description"></p>
   </div>

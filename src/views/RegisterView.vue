@@ -1,18 +1,18 @@
 <template>
-  <h2>Register</h2>
+  <h2>{{$t("register")}}</h2>
   <form @submit.prevent="onRegister">
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">{{$t("name")}}</label>
       <input type="text" id="name" v-model="name" />
     </div>
 
     <div class="form-group">
-      <label for="email">Email</label>
+      <label for="email">{{$t("email")}}</label>
       <input type="email" id="email" v-model="email" />
     </div>
 
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">{{$t("password")}}</label>
       <input type="password" id="password" v-model="password" />
     </div>
 

@@ -1,31 +1,33 @@
 <template>
   <div id="filter">
     <select name="exercise" id="exercise">
-      <option disabled value="placeholder" selected>Exercise Needs</option>
-      <option value="all">All</option>
-      <option value="very high">Perpetual, never ending exercise</option>
-      <option value="high">High</option>
-      <option value="moderate">Moderate</option>
-      <option value="low">No exercise for me or my dog</option>
+      <option disabled value="placeholder" selected>{{$t("exercise_needs")}}</option>
+      <option value="all">{{$t("all")}}</option>
+      <option value="very high">{{$t("ex_very_high")}}</option>
+      <option value="high">{{$t("ex_high")}}</option>
+      <option value="moderate">{{$t("ex_moderate")}}</option>
+      <option value="low">{{$t("ex_low")}}</option>
+      <option value="very-low">{{$t("ex_very_low")}}</option>
+      
     </select>
     <select name="trainability" id="trainability">
-      <option disabled value="placeholder" selected>Trainability</option>
-      <option value="all">All</option>
-      <option value="very high">I will learn everything</option>
-      <option value="high">High</option>
-      <option value="moderate">Moderate</option>
-      <option value="low">Low</option>
-      <option value="very-low">You will teach me nothing</option>
+      <option disabled value="placeholder" selected>{{$t("trainability")}}</option>
+      <option value="all">{{$t("all")}}</option>
+      <option value="very high">{{$t("tr_very_high")}}</option>
+      <option value="high">{{$t("tr_high")}}</option>
+      <option value="moderate">{{$t("tr_moderate")}}</option>
+      <option value="low">{{$t("tr_low")}}</option>
+      <option value="very-low">{{$t("tr_very_low")}}</option>
     </select>
 
     <select name="grooming" id="grooming">
-      <option disabled value="placeholder" selected>Grooming Requirements</option>
-      <option value="all">All</option>
-      <option value="very high">Primped and Pampered Pooches</option>
-      <option value="high">High-Maintenance Hairdos</option>
-      <option value="moderate">Routine Rinsers</option>
-      <option value="low">Basic Brushers</option>
-      <option value="very-low">No-Fuss Natural</option>
+      <option disabled value="placeholder" selected>{{$t("grooming_requirements")}}</option>
+      <option value="all">{{$t("all")}}</option>
+      <option value="very high">{{$t("gr_very_high")}}</option>
+      <option value="high">{{$t("gr_high")}}</option>
+      <option value="moderate">{{$t("gr_moderate")}}</option>
+      <option value="low">{{$t("gr_low")}}</option>
+      <option value="very-low">{{$t("gr_very_low")}}</option>
     </select>
   </div>
 </template>

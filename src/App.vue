@@ -3,13 +3,13 @@
     <header>
       <nav>
         <div class="nav-left">
-          <RouterLink :to="{ name: 'home' }">Home</RouterLink>
+          <RouterLink :to="{ name: 'home' }">{{$t("home")}}</RouterLink>
         </div>
         <div class="nav-right">
-          <RouterLink v-if="isLoggedIn" :to="{name: 'login'}">Dashboard</RouterLink>
-          <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">Login</RouterLink>
-          <a v-show="isLoggedIn" @click="onLogout" href="#">Logout</a>
-          <RouterLink v-if="!isLoggedIn" :to="{ name: 'register' }">Register</RouterLink>
+          <RouterLink v-if="isLoggedIn" :to="{ name: 'login' }">{{$t("dasboard")}}</RouterLink>
+          <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">{{$t("login")}}</RouterLink>
+          <a v-show="isLoggedIn" @click="onLogout" href="#">{{$t("logout")}}</a>
+          <RouterLink v-if="!isLoggedIn" :to="{ name: 'register' }">{{$t("register")}}</RouterLink>
         </div>
       </nav>
     </header>
