@@ -9,14 +9,14 @@ a {
   justify-content: center;
 }
 
-.dog-card {
+.dog-card{
   display: flex;
   flex-direction: column;
   padding: 1.25rem;
   flex: 1;
   min-width: 14rem;
   max-width: 18rem;
-  min-height: 17.5rem;
+  min-height: 20rem;
   max-height: 25rem;
   margin: 1rem;
   cursor: pointer;
@@ -34,4 +34,33 @@ a {
 .dog-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.icons {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+  transition: transform 0.3s ease;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: auto;
+}
+
+.icons {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+  transition: transform 0.3s ease;
+}
+
+.dog-card p {
+  flex-grow: 1;
+}
+
+.icons:hover {
+  transform: scale(1.2);
 }
