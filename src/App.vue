@@ -93,4 +93,9 @@ nan span:first-child {
 nav a:last-child {
   margin-right: 0;
 }
+
+.router-link-active {
+  color: #fcba03;
+}
+
 </style>
