@@ -3,7 +3,7 @@
     <select name="exercise" id="exercise" v-model="filter.exercise" @change="notifyParent">
       <option disabled>{{ $t('exercise_needs.title') }}</option>
       <option value="all">{{ $t('all') }}</option>
-      <option value="very high">{{ $t('exercise_needs.high') }}</option>
+      <option value="very high">{{ $t('exercise_needs.very_high') }}</option>
       <option value="high">{{ $t('exercise_needs.high') }}</option>
       <option value="moderate">{{ $t('exercise_needs.moderate') }}</option>
       <option value="low">{{ $t('exercise_needs.low') }}</option>
@@ -52,6 +52,7 @@ export default {
     this.filter.exercise = this.$t('exercise_needs.title');
     this.filter.trainability = this.$t('trainability.title');
     this.filter.grooming = this.$t('grooming_requirements.title');
+    // updates the values when the language is changed, but defaults to the above set option (which is the default option). So selected filters get reset
   }
 },
   methods: {

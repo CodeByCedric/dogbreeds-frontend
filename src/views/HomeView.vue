@@ -52,7 +52,32 @@ export default {
       }
     },
     handleFilterChange(filterData) {
-      console.log(filterData);
+      this.dogs = this.dogCache[this.$i18n.locale].filter((dog) => {
+        return this.filterDog(dog, filterData);
+      });
+    },
+    filterDog(dog, filter) {
+      const levels = {
+        'very high': 9,
+        'high': 7,
+        'moderate': 5,
+        'low': 2,
+        'very low': 1,
+      };
+      console.log(filter);
+
+      if (filter.exercise !== 'all' && dog.exercise_needs < levels[filter.exercise]) {
+        return false;
+      }
+      if (filter.trainability !== 'all' && dog.trainability < levels[filter.trainability]) {
+        return false;
+      }
+      if (filter.grooming !== 'all' && dog.grooming_requirements < levels[filter.grooming]) {
+        return false;
+      }
+
+      return true;
+
     }
   },
   created() {
