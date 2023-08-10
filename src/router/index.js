@@ -37,6 +37,12 @@ const router = createRouter({
       name: 'add-dog',
       component: () => import('../views/CreateDogView.vue'),
     },
+    {
+      path: '/edit-dog/:id',
+      name: 'edit-dog',
+      props: true,
+      component: () => import('../views/EditDogView.vue'),
+    },
   ],
 });
 

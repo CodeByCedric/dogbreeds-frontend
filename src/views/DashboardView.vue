@@ -2,21 +2,21 @@
   <DogFilter></DogFilter>
   <div class="dogs">
     <RouterLink :to="{ name: 'add-dog' }"><p class="dog-card" id="create-dog">+</p></RouterLink>
-    <DogCard v-for="dog in dogs" :key="dog.id" :dog="dog"></DogCard>
+    <DashboardDogCard v-for="dog in dogs" :key="dog.id" :dog="dog"></DashboardDogCard>
   </div>
 </template>
 
 <script>
 import DogService from '../services/DogService.js';
-import DogCard from '../components/DogCard.vue';
 import DogFilter from '../components/DogFilter.vue';
+import DashboardDogCard from '../components/DashboardDogCard.vue';
 
 export default {
   emits: ['login'],
   components: {
-    DogCard,
     DogFilter,
-  },
+    DashboardDogCard
+},
   watch: {
     '$i18n.locale': function (newLocale) {
       this.fetchDogs(newLocale);
@@ -74,6 +74,7 @@ export default {
   margin-bottom: 1rem;
   text-decoration: none;
 }
+
 
 #create-dog:hover {
   color: #fcba03;

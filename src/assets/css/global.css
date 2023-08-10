@@ -13,16 +13,22 @@ a {
   display: flex;
   flex-direction: column;
   padding: 1.25rem;
-  width: 15.5rem;
-  height: 17.5rem;
+  flex: 1;
+  min-width: 14rem;
+  max-width: 18rem;
+  min-height: 17.5rem;
+  max-height: 25rem;
   margin: 1rem;
   cursor: pointer;
   border: 1px solid #39495c;
-  margin-bottom: 1rem;
 }
 
 .dog-card h2 {
   align-self: center;
+}
+
+.dog-card p {
+  flex-grow: 1;
 }
 
 .dog-card:hover {
