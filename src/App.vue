@@ -41,7 +41,7 @@ export default {
     if (isAuthenticated) {
       this.isLoggedIn = true;
     }
-},
+  },
   methods: {
     handleLogin() {
       this.isLoggedIn = true;

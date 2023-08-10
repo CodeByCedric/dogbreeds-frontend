@@ -9,7 +9,7 @@ a {
   justify-content: center;
 }
 
-.dog-card{
+.dog-card {
   display: flex;
   flex-direction: column;
   padding: 1.25rem;

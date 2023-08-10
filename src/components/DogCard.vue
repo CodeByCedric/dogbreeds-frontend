@@ -8,8 +8,18 @@
     </ul>
     <p v-html="truncateDescription(dog.description, 100)"></p>
     <div class="icon-container" v-if="$route.path === '/dashboard'">
-      <img class="icons" src="../assets/icons/edit.svg" alt="edit icon" @click.stop="navigateToEditDog"/>
-      <img class="icons" src="../assets/icons/delete.svg" alt="delete icon" @click.stop="deleteDog"/>
+      <img
+        class="icons"
+        src="../assets/icons/edit.svg"
+        alt="edit icon"
+        @click.stop="navigateToEditDog"
+      />
+      <img
+        class="icons"
+        src="../assets/icons/delete.svg"
+        alt="delete icon"
+        @click.stop="deleteDog"
+      />
     </div>
   </div>
 </template>
@@ -37,7 +47,6 @@ export default {
       else {
         this.$router.push({ name: 'dog-details', params: { id: this.dog.id } });
       }
-      
     },
     navigateToEditDog() {
       this.$router.push({ name: 'edit-dog', params: { id: this.dog.id } });
