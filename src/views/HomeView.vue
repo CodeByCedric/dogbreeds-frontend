@@ -1,5 +1,5 @@
 <template>
-  <DogFilter></DogFilter>
+  <DogFilter @filter="handleFilterChange"></DogFilter>
   <main>
     <div class="dogs">
       <DogCard v-for="dog in dogs" :key="dog.id" :dog="dog"></DogCard>
@@ -51,6 +51,9 @@ export default {
           });
       }
     },
+    handleFilterChange(filterData) {
+      console.log(filterData);
+    }
   },
   created() {
     let locale = this.$i18n.locale;

@@ -1,7 +1,7 @@
 <template>
   <div id="filter">
-    <select name="exercise" id="exercise">
-      <option disabled value="placeholder" selected>{{ $t('exercise_needs.title') }}</option>
+    <select name="exercise" id="exercise" v-model="filter.exercise" @change="notifyParent">
+      <option disabled>{{ $t('exercise_needs.title') }}</option>
       <option value="all">{{ $t('all') }}</option>
       <option value="very high">{{ $t('exercise_needs.high') }}</option>
       <option value="high">{{ $t('exercise_needs.high') }}</option>
@@ -9,8 +9,8 @@
       <option value="low">{{ $t('exercise_needs.low') }}</option>
       <option value="very-low">{{ $t('exercise_needs.very_low') }}</option>
     </select>
-    <select name="trainability" id="trainability">
-      <option disabled value="placeholder" selected>{{ $t('trainability.title') }}</option>
+    <select name="trainability" id="trainability" v-model="filter.trainability" @change="notifyParent">
+      <option disabled>{{ $t('trainability.title') }}</option>
       <option value="all">{{ $t('all') }}</option>
       <option value="very high">{{ $t('trainability.very_high') }}</option>
       <option value="high">{{ $t('trainability.high') }}</option>
@@ -18,9 +18,8 @@
       <option value="low">{{ $t('trainability.low') }}</option>
       <option value="very-low">{{ $t('trainability.very_low') }}</option>
     </select>
-
-    <select name="grooming" id="grooming">
-      <option disabled value="placeholder" selected>{{ $t('grooming_requirements.title') }}</option>
+    <select name="grooming" id="grooming" v-model="filter.grooming" @change="notifyParent">
+      <option disabled>{{ $t('grooming_requirements.title') }}</option>
       <option value="all">{{ $t('all') }}</option>
       <option value="very high">{{ $t('grooming_requirements.very_high') }}</option>
       <option value="high">{{ $t('grooming_requirements.high') }}</option>
@@ -30,6 +29,40 @@
     </select>
   </div>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      filter: {
+        exercise: '',
+        trainability: '',
+        grooming: '',
+      }
+    }
+  },
+  mounted() {
+    this.filter.exercise = this.$t('exercise_needs.title');
+    this.filter.trainability = this.$t('trainability.title');
+    this.filter.grooming = this.$t('grooming_requirements.title');
+  },
+  watch: {
+  '$i18n.locale': function() {
+    this.filter.exercise = this.$t('exercise_needs.title');
+    this.filter.trainability = this.$t('trainability.title');
+    this.filter.grooming = this.$t('grooming_requirements.title');
+  }
+},
+  methods: {
+    notifyParent() {
+      this.$emit('filter', this.filter);
+    }
+  }
+}
+
+
+</script>
 
 <style scoped>
 #filter {
