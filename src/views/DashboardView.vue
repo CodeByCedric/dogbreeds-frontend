@@ -1,71 +1,15 @@
 <template>
-  <DogFilter></DogFilter>
-  <div class="dogs">
-    <RouterLink :to="{ name: 'add-dog' }"><p class="dog-card" id="create-dog">+</p></RouterLink>
-    <DogCard v-for="dog in dogs" :key="dog.id" :dog="dog"></DogCard>
-  </div>
+  <DogList :showIcons="true"></DogList>
 </template>
 
 <script>
-import DogService from '../services/DogService.js';
-import DogFilter from '../components/DogFilter.vue';
-import DogCard from '../components/DogCard.vue';
+import DogList from '../components/DogList.vue';
 
 export default {
-  emits: ['login'],
   components: {
-    DogCard,
-    DogFilter,
-  },
-  watch: {
-    '$i18n.locale': function (newLocale) {
-      this.fetchDogs(newLocale);
-    },
-  },
-  data() {
-    return {
-      dogs: null,
-      dogCache: {},
-    };
-  },
-  methods: {
-    fetchDogs(locale) {
-      if (this.dogCache[locale]) {
-        this.dogs = this.dogCache[locale];
-        return;
-      } else {
-        DogService.getDogs(locale)
-          .then((response) => {
-            const dogsForCache = response.data.map((dog) => {
-              dog.selectedExercise = true;
-              dog.selectedTrainability = true;
-              dog.selectedGrooming = true;
-              return dog;
-            });
-            this.dogCache[locale] = dogsForCache;
-            this.dogs = dogsForCache;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    },
-  },
-  created() {
-    let locale = this.$i18n.locale;
-    this.fetchDogs(locale);
+    DogList,
   },
 };
 </script>
 
-<style scoped>
-#create-dog {
-  justify-content: center;
-  align-items: center;
-  font-size: 5rem;
-}
-
-#create-dog:hover {
-  color: #fcba03;
-}
-</style>
+<style scoped></style>
