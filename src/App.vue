@@ -27,6 +27,7 @@
 <script>
 import { RouterLink } from 'vue-router';
 import UserService from '/src/services/UserService.js';
+import Cookies from 'js-cookie';
 
 export default {
   name: 'App',
@@ -35,12 +36,20 @@ export default {
       isLoggedIn: false,
     };
   },
+  created() {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    if (isAuthenticated) {
+      this.isLoggedIn = true;
+    }
+},
   methods: {
     handleLogin() {
       this.isLoggedIn = true;
+      localStorage.setItem('isAuthenticated', 'true');
     },
     onLogout() {
       this.isLoggedIn = false;
+      localStorage.removeItem('isAuthenticated');
       this.$router.push({ name: 'home' });
       UserService.logoutUser();
     },
@@ -97,5 +106,4 @@ nav a:last-child {
 .router-link-active {
   color: #fcba03;
 }
-
 </style>

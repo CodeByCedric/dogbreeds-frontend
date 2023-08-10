@@ -9,7 +9,12 @@
       <option value="low">{{ $t('exercise_needs.low') }}</option>
       <option value="very-low">{{ $t('exercise_needs.very_low') }}</option>
     </select>
-    <select name="trainability" id="trainability" v-model="filter.trainability" @change="notifyParent">
+    <select
+      name="trainability"
+      id="trainability"
+      v-model="filter.trainability"
+      @change="notifyParent"
+    >
       <option disabled>{{ $t('trainability.title') }}</option>
       <option value="all">{{ $t('all') }}</option>
       <option value="very high">{{ $t('trainability.very_high') }}</option>
@@ -30,7 +35,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   data() {
@@ -39,8 +43,8 @@ export default {
         exercise: '',
         trainability: '',
         grooming: '',
-      }
-    }
+      },
+    };
   },
   mounted() {
     this.filter.exercise = this.$t('exercise_needs.title');
@@ -48,21 +52,19 @@ export default {
     this.filter.grooming = this.$t('grooming_requirements.title');
   },
   watch: {
-  '$i18n.locale': function() {
-    this.filter.exercise = this.$t('exercise_needs.title');
-    this.filter.trainability = this.$t('trainability.title');
-    this.filter.grooming = this.$t('grooming_requirements.title');
-    // updates the values when the language is changed, but defaults to the above set option (which is the default option). So selected filters get reset
-  }
-},
+    '$i18n.locale': function () {
+      this.filter.exercise = this.$t('exercise_needs.title');
+      this.filter.trainability = this.$t('trainability.title');
+      this.filter.grooming = this.$t('grooming_requirements.title');
+      // updates the values when the language is changed, but defaults to the above set option (which is the default option). So selected filters get reset
+    },
+  },
   methods: {
     notifyParent() {
       this.$emit('filter', this.filter);
-    }
-  }
-}
-
-
+    },
+  },
+};
 </script>
 
 <style scoped>

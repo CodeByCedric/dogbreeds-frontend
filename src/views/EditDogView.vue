@@ -1,13 +1,13 @@
 <template>
-    <h1>Edit Dog</h1>
+  <h1>Edit Dog</h1>
 </template>
 
 <script>
 export default {
-    props: {
-        id: {
-            required: true,
-        },
+  props: {
+    id: {
+      required: true,
     },
-}
+  },
+};
 </script>

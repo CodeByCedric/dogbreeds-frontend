@@ -59,9 +59,9 @@ export default {
     filterDog(dog, filter) {
       const levels = {
         'very high': 9,
-        'high': 7,
-        'moderate': 5,
-        'low': 2,
+        high: 7,
+        moderate: 5,
+        low: 2,
         'very low': 1,
       };
       console.log(filter);
@@ -77,8 +77,7 @@ export default {
       }
 
       return true;
-
-    }
+    },
   },
   created() {
     let locale = this.$i18n.locale;

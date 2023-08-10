@@ -15,8 +15,8 @@ export default {
   emits: ['login'],
   components: {
     DogFilter,
-    DashboardDogCard
-},
+    DashboardDogCard,
+  },
   watch: {
     '$i18n.locale': function (newLocale) {
       this.fetchDogs(newLocale);
@@ -74,7 +74,6 @@ export default {
   margin-bottom: 1rem;
   text-decoration: none;
 }
-
 
 #create-dog:hover {
   color: #fcba03;
