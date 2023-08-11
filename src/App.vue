@@ -1,5 +1,4 @@
 <template>
-  <div id="layout">
     <header>
       <nav>
         <div class="nav-left">
@@ -21,13 +20,12 @@
       </nav>
     </header>
     <RouterView @login="handleLogin" />
-  </div>
+
 </template>
 
 <script>
 import { RouterLink } from 'vue-router';
 import UserService from '/src/services/UserService.js';
-import Cookies from 'js-cookie';
 
 export default {
   name: 'App',
@@ -37,7 +35,7 @@ export default {
     };
   },
   created() {
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const isAuthenticated = sessionStorage.getItem('isAuthenticated');
     if (isAuthenticated) {
       this.isLoggedIn = true;
     }
@@ -45,11 +43,11 @@ export default {
   methods: {
     handleLogin() {
       this.isLoggedIn = true;
-      localStorage.setItem('isAuthenticated', 'true');
+      sessionStorage.setItem('isAuthenticated', 'true');
     },
     onLogout() {
       this.isLoggedIn = false;
-      localStorage.removeItem('isAuthenticated');
+      sessionStorage.removeItem('isAuthenticated');
       this.$router.push({ name: 'home' });
       UserService.logoutUser();
     },
@@ -66,9 +64,7 @@ export default {
 </script>
 
 <style>
-#layout {
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 nav {
   display: flex;
   justify-content: space-between;
