@@ -46,12 +46,12 @@ npm run lint
 
 ### Back-Office
 - shows a list of entries: ok
-- has the functionality to search the list
+- has the functionality to search the list: 
 - has the functionality to filter the list: ok
-- has the functionality to add an entry: 
+- has the functionality to add an entry: ok
 - has the functionality to update an entry: 
-- has the functionality to delete an entry: 
-- as a user, you should be authenticated to access it: ok, in die mate dat je moet ingelogd zijn om het dashboard te raadplegen. Er is geen extra authenticatie die controleert of ingelogde users aan het dashboard moeten kunnen
+- has the functionality to delete an entry: ok
+- as a user, you should be authenticated to access it: ok, in die mate dat je moet ingelogd zijn om het dashboard te raadplegen. Er is geen extra authenticatie die controleert of ingelogde users aan het dashboard moeten kunnen. 
 
 
 
