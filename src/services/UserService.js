@@ -24,6 +24,14 @@ export default {
     });
   },
   logoutUser() {
-    return apiClient.post('/logout');
+    return apiClient.post(
+      '/logout',
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
   },
 };
