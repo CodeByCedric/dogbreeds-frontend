@@ -1,26 +1,21 @@
 <template>
-    <header>
-      <nav>
-        <div class="nav-left">
-          <span title="English" @click="changeLocale('en')">EN</span>
-          <span>|</span>
-          <span title="Nederlands" @click="changeLocale('nl')">NL</span>
-          <RouterLink :to="{ name: 'home' }">{{ $t('home') }}</RouterLink>
-        </div>
-        <div class="nav-right">
-          <RouterLink v-if="isLoggedIn" :to="{ name: 'dashboard' }">{{
-            $t('dashboard')
-          }}</RouterLink>
-          <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">{{ $t('login') }}</RouterLink>
-          <a v-show="isLoggedIn" @click="onLogout" href="#">{{ $t('logout') }}</a>
-          <RouterLink v-if="!isLoggedIn" :to="{ name: 'register' }">{{
-            $t('register')
-          }}</RouterLink>
-        </div>
-      </nav>
-    </header>
-    <RouterView @login="handleLogin" />
-
+  <header>
+    <nav>
+      <div class="nav-left">
+        <span title="English" @click="changeLocale('en')">EN</span>
+        <span>|</span>
+        <span title="Nederlands" @click="changeLocale('nl')">NL</span>
+        <RouterLink :to="{ name: 'home' }">{{ $t('home') }}</RouterLink>
+      </div>
+      <div class="nav-right">
+        <RouterLink v-if="isLoggedIn" :to="{ name: 'dashboard' }">{{ $t('dashboard') }}</RouterLink>
+        <RouterLink v-show="!isLoggedIn" :to="{ name: 'login' }">{{ $t('login') }}</RouterLink>
+        <a v-show="isLoggedIn" @click="onLogout" href="#">{{ $t('logout') }}</a>
+        <RouterLink v-if="!isLoggedIn" :to="{ name: 'register' }">{{ $t('register') }}</RouterLink>
+      </div>
+    </nav>
+  </header>
+  <RouterView @login="handleLogin" />
 </template>
 
 <script>
@@ -64,7 +59,6 @@ export default {
 </script>
 
 <style>
-
 nav {
   display: flex;
   justify-content: space-between;

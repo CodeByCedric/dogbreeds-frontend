@@ -104,7 +104,6 @@ export default {
 </script>
 
 <style scoped>
-/* Reset some styles for consistency */
 * {
   text-align: center;
 }
