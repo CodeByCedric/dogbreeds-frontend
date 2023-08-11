@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import DogService from '../services/DogService.js';
+
 export default {
   props: {
     dog: {
@@ -51,8 +53,19 @@ export default {
     navigateToEditDog() {
       this.$router.push({ name: 'edit-dog', params: { id: this.dog.id } });
     },
-    deleteDog() {
-      // delete the dog
+    async deleteDog() {
+      try {
+        const locales = Object.keys(this.$parent.dogCache);
+        for (const locale of locales) {
+          const dogIndex = this.$parent.dogCache[locale].findIndex((dog) => dog.id === this.dog.id);
+          this.$parent.dogCache[locale].splice(dogIndex, 1);
+        }
+        this.$parent.dogs = this.$parent.dogCache[this.$i18n.locale]; //what does this line do?, sets the dogs data object in the parent to the updated cache
+        await DogService.deleteDog(this.dog.id);
+      } catch (error) {
+        console.log(error);
+        //TODO show error message
+      }
     },
   },
 };
