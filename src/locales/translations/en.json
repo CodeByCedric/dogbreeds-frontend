@@ -33,6 +33,14 @@
     "low": "Low",
     "very_low": "Very Low"
   },
+  "protectiveness": {
+    "title": "Protectiveness",
+    "very_high": "Very High",
+    "high": "High",
+    "moderate": "Moderate",
+    "low": "Low",
+    "very_low": "Very Low"
+  },
   "english": "English",
   "dutch": "Dutch",
   "dogbreed": "Dog Breed",

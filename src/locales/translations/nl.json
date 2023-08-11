@@ -33,6 +33,14 @@
     "low": "Laag",
     "very_low": "Zeer laag"
   },
+  "protectiveness": {
+    "title": "Waakzaamheid",
+    "very_high": "Zeer hoog",
+    "high": "Hoog",
+    "moderate": "Gemiddeld",
+    "low": "Laag",
+    "very_low": "Zeer laag"
+  },
   "english": "Engels",
   "dutch": "Nederlands",
   "dogbreed": "Ras",
