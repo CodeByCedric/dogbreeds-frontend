@@ -46,5 +46,6 @@
   "dogbreed": "Dog Breed",
   "description": "Description",
   "common_fields": "Common Fields",
-  "add_dog": "Add Dog"
+  "add_dog": "Add Dog",
+  "update_dog": "Update Dog"
 }

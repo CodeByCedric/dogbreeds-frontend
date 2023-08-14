@@ -18,8 +18,10 @@ export default {
     const langParam = locale !== 'en' ? '?lang=' + locale : '';
     return apiClient.get('/dogs/' + id + langParam);
   },
+  getDogWithAllTranslations(id){
+    return apiClient.get('/dogs-languages/' + id);
+  },
   deleteDog(id) {
-    console.log('deleteDog:', '/dogs/' + id);
     return apiClient.delete('/dogs/' + id);
   },
   createDog(dogData) {
@@ -29,5 +31,13 @@ export default {
       },
     };
     return apiClient.post('/dogs', dogData, config);
+  },
+  updateDog(id, dogData) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    return apiClient.put('/dogs/' + id, dogData, config);
   },
 };

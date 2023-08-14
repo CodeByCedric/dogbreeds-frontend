@@ -63,3 +63,5 @@ Clickable deel van de dashboarddogcard verwijderd, maar ook de css moet nog word
 -> om ambiguity te vermijden tussen naar details gaan, edit, en delete
 
 Deleting a dog should probably have a confirmation to protect against accidentaly deleting them
+
+<!-- TODO: ranges are limited when setting with buttons, but not when typed, add validation -->

@@ -2,9 +2,9 @@
   <DogFilter @filter="handleFilterChange"></DogFilter>
   <main>
     <div class="dogs">
-      <RouterLink v-if="$route.path === '/dashboard'" :to="{ name: 'add-dog' }"
-        ><p class="dog-card" id="create-dog">+</p></RouterLink
-      >
+      <RouterLink v-if="$route.path === '/dashboard'" :to="{ name: 'add-dog' }">
+        <p class="dog-card" id="create-dog">+</p>
+      </RouterLink>
       <DogCard v-for="dog in dogs" :key="dog.id" :dog="dog" :showIcons="showIcons"></DogCard>
     </div>
   </main>

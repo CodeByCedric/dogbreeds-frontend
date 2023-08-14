@@ -27,7 +27,7 @@
   </div>
 
   <div class="language-independent-fields">
-    <!-- TODO: ranges are limited when setting with buttons, but not when typed, add validation -->
+
     <label
       >{{ $t('exercise_needs.title') }}:
       <input v-model.number="dog.exercise_needs" type="number" min="1" max="10" required />
@@ -89,14 +89,10 @@ export default {
         languages: ['en', 'nl'],
       };
       try {
-        console.log(dogData);
-        const response = await DogService.createDog(dogData);
-        const newDogId = response.data.id;
-        console.log(newDogId);
-
+        await DogService.createDog(dogData);
         this.$router.push({ name: 'dashboard' });
       } catch (error) {
-        console.log(error);
+        alert('Something went wrong, please try again.')
       }
     },
   },
